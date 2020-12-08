@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../styles/Home.module.sass'
-import {Container, Nav, Navbar, Row, Col } from 'react-bootstrap'
+import {Container, Nav, Navbar, Row, Col, Card } from 'react-bootstrap'
 
 export default function Home() {
   return (
@@ -36,12 +36,26 @@ export default function Home() {
           />
         </div>
         <section className='about'>
-          <h1>Get Started</h1>
+          <div className="section-title">
+            <h1 className="text-center " >Get Started Now</h1>
+          </div>
           <Container>
             <Row>
-              <Col>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit sunt itaque aliquam ullam quis eveniet iure labore quos sed, omnis amet facere sapiente, accusantium dolor fugiat id quidem eaque voluptatum!</Col>
-              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas rerum et, pariatur necessitatibus, provident eaque, saepe architecto nam nisi totam aspernatur recusandae! Labore repellat distinctio ex nesciunt illo, deserunt fugiat.</Col>
-              <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quam nobis repudiandae soluta libero amet sapiente, possimus dicta aperiam commodi molestiae corrupti mollitia culpa ipsa error nostrum placeat? Sed, fugiat?</Col>
+              <Col xs={12} md={4} >
+                <Card>
+                  <Card.Body> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit sunt itaque aliquam ullam quis eveniet iure labore quos sed, omnis amet facere sapiente, accusantium dolor fugiat id quidem eaque voluptatum!</Card.Body>
+                </Card>
+              </Col>
+              <Col xs={12} md={4} >
+                <Card>
+                  <Card.Body> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas rerum et, pariatur necessitatibus, provident eaque, saepe architecto nam nisi totam aspernatur recusandae! Labore repellat distinctio ex nesciunt illo, deserunt fugiat.</Card.Body>
+                </Card>
+              </Col>
+              <Col xs={12} md={4} >
+                <Card>
+                  <Card.Body>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quam nobis repudiandae soluta libero amet sapiente, possimus dicta aperiam commodi molestiae corrupti mollitia culpa ipsa error nostrum placeat? Sed, fugiat? </Card.Body>
+                </Card>
+              </Col>
             </Row>
           </Container>
         </section>
