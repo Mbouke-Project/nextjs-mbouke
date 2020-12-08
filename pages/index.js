@@ -35,7 +35,20 @@ export default function Home() {
             priority={true}
           />
         </div>
+        <section className='about'>
+          <h1>Get Started</h1>
+          <Container>
+            <Row>
+              <Col>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit sunt itaque aliquam ullam quis eveniet iure labore quos sed, omnis amet facere sapiente, accusantium dolor fugiat id quidem eaque voluptatum!</Col>
+              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas rerum et, pariatur necessitatibus, provident eaque, saepe architecto nam nisi totam aspernatur recusandae! Labore repellat distinctio ex nesciunt illo, deserunt fugiat.</Col>
+              <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quam nobis repudiandae soluta libero amet sapiente, possimus dicta aperiam commodi molestiae corrupti mollitia culpa ipsa error nostrum placeat? Sed, fugiat?</Col>
+            </Row>
+          </Container>
+        </section>
 
+        <footer>
+
+        </footer>
       </main>
 
 
