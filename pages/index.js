@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
       <main>
         <nav>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+        <Navbar collapseOnSelect expand="md"  variant="light" className="bg-light" >
           <Navbar.Brand href="#home">Mbouke</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
