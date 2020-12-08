@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import Image from 'next/image'
 // import styles from '../styles/Home.module.sass'
-import {Nav, Navbar, NavDropdown} from 'react-bootstrap'
+import {Container, Nav, Navbar, Row, Col } from 'react-bootstrap'
 
 export default function Home() {
   return (
@@ -25,8 +26,16 @@ export default function Home() {
         </Navbar>
         </nav>
         <div className='landing-image'>
-          Image Here
+          <Image
+            src="/images/world-map-night.jpg"
+            alt="Picture of the author"
+            layout='responsive'
+            width={1000}
+            height={500}
+            priority={true}
+          />
         </div>
+
       </main>
 
 
