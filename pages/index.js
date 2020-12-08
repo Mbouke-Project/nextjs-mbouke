@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-// import styles from '../styles/Home.module.sass'
+import styles from '../styles/Home.module.sass'
 import {Container, Nav, Navbar, Row, Col, Card } from 'react-bootstrap'
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
           />
         </div>
         <section className='about'>
-          <div className="section-title">
+          <div className={styles.sectionTitle}>
             <h1 className="text-center " >Get Started Now</h1>
           </div>
           <Container>
