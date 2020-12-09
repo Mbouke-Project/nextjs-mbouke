@@ -42,10 +42,10 @@ export default function Home() {
           />
           <h1 className={styles.landingText}> Hello </h1>
           <Form className={styles.landingForm}>
-            <Form.Row>
+            <Row noGutters={true}>
               <Col xs={2}>
               </Col>
-              <Col xs={6}>
+              <Col xs={6}  >
                 <Form.Control size='lg' placeholder='e.g. "Plumber" or "Handyman"'/>
               </Col>
               <Col >
@@ -56,7 +56,7 @@ export default function Home() {
               <Col xs={2}>
 
               </Col>
-            </Form.Row>
+            </Row>
           </Form>
         </div>
 
