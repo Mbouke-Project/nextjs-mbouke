@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
 import {Container, Nav, Navbar, Row, Col, Card } from 'react-bootstrap'
+import { FaBeer, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
+
+
 
 export default function Home() {
   return (
@@ -66,11 +69,14 @@ export default function Home() {
         <footer className={styles.sectionFooter}>
           <Container>
             <Row>
-              <Col xs={12} md={9}>
+              <Col xs={6}>
+              <FaTwitter size="2rem" color="#00acee" /> 
+              <FaLinkedin size="2rem" color="#0072b1" />
+              <FaYoutube size="2rem" color="red"/>
                 <p>Learn More</p>
                 <p>Privacy Policy</p>
               </Col>
-              <Col xs={12} md={3}>
+              <Col xs={6}>
                 <h4 className='text-right'>Mbouke</h4>
                 <p className='text-right'>Connecting Workers</p>
                 <p className='text-right'>All Rights Reserved 2020</p>
