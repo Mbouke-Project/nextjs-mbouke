@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
-import {Container, Nav, Navbar, Row, Col, Card } from 'react-bootstrap'
+import {Container, Nav, Navbar, Row, Col, Card, Form, Button } from 'react-bootstrap'
 import { FaBeer, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 
@@ -35,12 +35,31 @@ export default function Home() {
             alt="Picture of the author"
             layout='fill'
             objectFit='cover'
-            // objectPosition='50% 50000%'
+            objectPosition='center'
             // width={1000}
             // height={500}
             // priority={true}
           />
+          <h1 className={styles.landingText}> Hello </h1>
+          <Form className={styles.landingForm}>
+            <Form.Row>
+              <Col xs={2}>
+              </Col>
+              <Col xs={6}>
+                <Form.Control size='lg' placeholder='e.g. "Plumber" or "Handyman"'/>
+              </Col>
+              <Col >
+                <Button size='lg' variant="primary" type="submit">
+                  Find Pros
+                </Button>              
+              </Col>
+              <Col xs={2}>
+
+              </Col>
+            </Form.Row>
+          </Form>
         </div>
+
         <section className='about'>
           <div className={styles.sectionTitle}>
             <h1 className="text-center " >Get Started Now</h1>
@@ -70,9 +89,9 @@ export default function Home() {
           <Container>
             <Row>
               <Col xs={6}>
-              <FaTwitter size="2rem" color="#00acee" /> 
-              <FaLinkedin size="2rem" color="#0072b1" />
-              <FaYoutube size="2rem" color="red"/>
+                <FaTwitter size="2rem" color="#00acee" /> 
+                <FaLinkedin size="2rem" color="#0072b1" />
+                <FaYoutube size="2rem" color="red"/>
                 <p>Learn More</p>
                 <p>Privacy Policy</p>
               </Col>
