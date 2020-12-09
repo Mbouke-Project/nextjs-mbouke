@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
 import { FaHouseDamage, FaMoneyBillAlt, FaUsers } from 'react-icons/fa';
+import Navigation from '../components/navigation.js'
 import Footer from '../components/footer.js'
 
 
@@ -16,27 +17,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <nav>
-        <Navbar collapseOnSelect expand="md"  variant="light" className="bg-light" >
-          <Navbar.Brand href="#home">Mbouke</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link>
-                <Link href="/signup">Sign Up</Link>
-                </Nav.Link>
-              <Nav.Link>
-                <Link href="/login">
-                Log In
-              </Link>
-              </Nav.Link>
-              
-           
-              <Nav.Link className={styles.proLink}href="#deets">Are You A Local Pro?</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        </nav>
+        <Navigation />
+       
         <div className={styles.imageContainer}>
           <Image
             className={styles.landingImage}
