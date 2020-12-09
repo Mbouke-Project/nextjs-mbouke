@@ -35,7 +35,7 @@ function Signup() {
                                 </Button>
                             </Form>
                         </Col>
-                        <Col xs={12} md={7} >
+                        <Col xs={12} md={7} className="d-none d-md-block "  >
                             <div className="text-center">
                                 <h2>Why Join?</h2>
                             </div>
