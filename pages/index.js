@@ -40,7 +40,7 @@ export default function Home() {
             // height={500}
             // priority={true}
           />
-          <h1 className={styles.landingText}> Hello </h1>
+          <h1 className={styles.landingText}>Find Pros In Your Country</h1>
           <Form className={styles.landingForm}>
             <Row noGutters={true}>
               <Col xs={2}>
@@ -89,9 +89,11 @@ export default function Home() {
           <Container>
             <Row>
               <Col xs={6}>
-                <FaTwitter size="2rem" color="#00acee" /> 
-                <FaLinkedin size="2rem" color="#0072b1" />
-                <FaYoutube size="2rem" color="red"/>
+                <div className={styles.footerIconsContainer}>
+                  <FaTwitter className={styles.footerIcons} size="2rem" color="#00acee" /> 
+                  <FaLinkedin className={styles.footerIcons} size="2rem" color="#0072b1" />
+                  <FaYoutube className={styles.footerIcons} size="2rem" color="red"/>
+                </div>
                 <p>Learn More</p>
                 <p>Privacy Policy</p>
               </Col>
