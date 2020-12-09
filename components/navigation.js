@@ -7,14 +7,17 @@ function Navigation() {
     return (
         <nav>
         <Navbar collapseOnSelect expand="md"  variant="light" className="bg-light" >
-          <Navbar.Brand href="#home">Mbouke</Navbar.Brand>
+          <Link href="/">Mbouke</Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
+                
+
               <Link href='/signup'>
                   Sign Up
                 {/* <Link href="/signup">Sign Up</Link> */}
                 </Link>
+                
               <Link href='login'>
                 {/* <Link href="/login"> */}
                 Log In
