@@ -12,17 +12,17 @@ function Login() {
             <div className={styles.content}>
                 <Container>
                     <Row>
-                        <Col xs={12} md={7} className="d-none d-md-block" >
+                        <Col xs={12} md={6}  className="d-none d-md-block text-center"  >
                         <Image
                             className={styles.landingImage}
                             src="/images/yard-worker.jpg"
                             alt="Picture a professional trimming plants with an electric trimmer"
-                            layout='responsive'
-                            width={640}
-                            height={469}
+                            layout='intrinsic'
+                            width={530}
+                            height={388}
                         />
                         </Col>
-                        <Col className={styles.formColumn} xs={12} md={5} >
+                        <Col className={styles.formColumn} xs={12} md={6} >
                        
                                 <div className={styles.formContainer}>
                                 <h1>Login For Pros</h1>
