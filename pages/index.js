@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
 import {Container, Nav, Navbar, Row, Col, Card, Form, Button } from 'react-bootstrap'
-import { FaBeer, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaYoutube, FaHouseDamage, FaMoneyBillAlt, FaUsers } from 'react-icons/fa';
 
 
 
@@ -24,6 +24,7 @@ export default function Home() {
               <Nav.Link eventKey={2} href="#memes">
                 Log In
               </Nav.Link>
+              <Nav.Link className={styles.proLink}href="#deets">Are You A Local Pro?</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -31,7 +32,7 @@ export default function Home() {
         <div className={styles.imageContainer}>
           <Image
             className={styles.landingImage}
-            src="/images/world-map-night.jpg"
+            src="/images/hacienda.jpg"
             alt="Picture of the author"
             layout='fill'
             objectFit='cover'
@@ -62,24 +63,27 @@ export default function Home() {
 
         <section className='about'>
           <div className={styles.sectionTitle}>
-            <h1 className="text-center " >Get Started Now</h1>
+            <h1 className="text-center " >How It Works</h1>
           </div>
           <Container>
             <Row>
-              <Col xs={12} md={4} >
-                <Card>
-                  <Card.Body> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit sunt itaque aliquam ullam quis eveniet iure labore quos sed, omnis amet facere sapiente, accusantium dolor fugiat id quidem eaque voluptatum!</Card.Body>
-                </Card>
+              <Col className={styles.aboutCols} xs={12} md={4} >
+                <FaHouseDamage size="3rem" />
+                <p>
+                  Specify the kind of help you need 
+                </p>
               </Col>
-              <Col xs={12} md={4} >
-                <Card>
-                  <Card.Body> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas rerum et, pariatur necessitatibus, provident eaque, saepe architecto nam nisi totam aspernatur recusandae! Labore repellat distinctio ex nesciunt illo, deserunt fugiat.</Card.Body>
-                </Card>
+              <Col className={styles.aboutCols} xs={12} md={4} >
+                <FaMoneyBillAlt size="3rem" />
+                <p>
+                  Pay A Small Fee 
+                </p>
               </Col>
-              <Col xs={12} md={4} >
-                <Card>
-                  <Card.Body>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quam nobis repudiandae soluta libero amet sapiente, possimus dicta aperiam commodi molestiae corrupti mollitia culpa ipsa error nostrum placeat? Sed, fugiat? </Card.Body>
-                </Card>
+              <Col className={styles.aboutCols} xs={12} md={4} >
+                <FaUsers size="3rem" />
+                <p>
+                  Recieve A List of Matching Pros In Your Area
+                </p>
               </Col>
             </Row>
           </Container>
