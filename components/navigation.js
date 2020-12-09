@@ -11,16 +11,16 @@ function Navigation() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href='/signup'>
+              <Link href='/signup'>
                   Sign Up
                 {/* <Link href="/signup">Sign Up</Link> */}
-                </Nav.Link>
-              <Nav.Link href='login'>
+                </Link>
+              <Link href='login'>
                 {/* <Link href="/login"> */}
                 Log In
               {/* </Link> */}
-              </Nav.Link>
-              <Nav.Link href="#deets">Are You A Local Pro?</Nav.Link>
+              </Link>
+              <Link href="#deets">Are You A Local Pro?</Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
