@@ -1,8 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
-import { FaTwitter, FaLinkedin, FaYoutube, FaHouseDamage, FaMoneyBillAlt, FaUsers } from 'react-icons/fa';
+import { FaHouseDamage, FaMoneyBillAlt, FaUsers } from 'react-icons/fa';
+import Footer from '../components/footer.js'
 
 
 
@@ -20,10 +22,16 @@ export default function Home() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="#deets">Sign Up</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
+              <Nav.Link>
+                <Link href="/signup">Sign Up</Link>
+                </Nav.Link>
+              <Nav.Link>
+                <Link href="/login">
                 Log In
+              </Link>
               </Nav.Link>
+              
+           
               <Nav.Link className={styles.proLink}href="#deets">Are You A Local Pro?</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -88,31 +96,8 @@ export default function Home() {
             </Row>
           </Container>
         </section>
-
-        <footer className={styles.sectionFooter}>
-          <Container>
-            <Row>
-              <Col xs={6}>
-                <div className={styles.footerIconsContainer}>
-                  <FaTwitter className={styles.footerIcons} size="2rem" color="#00acee" /> 
-                  <FaLinkedin className={styles.footerIcons} size="2rem" color="#0072b1" />
-                  <FaYoutube className={styles.footerIcons} size="2rem" color="red"/>
-                </div>
-                <p>Learn More</p>
-                <p>Privacy Policy</p>
-              </Col>
-              <Col xs={6}>
-                <h4 className='text-right'>Mbouke</h4>
-                <p className='text-right'>Connecting Workers</p>
-                <p className='text-right'>All Rights Reserved 2020</p>
-              </Col>
-            </Row>
-          </Container>
-
-        </footer>
+        <Footer />
       </main>
-
-
     </div>
   )
 }
