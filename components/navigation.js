@@ -6,24 +6,24 @@ import { Nav, Navbar } from 'react-bootstrap'
 function Navigation() {
     return (
         <nav>
-        <Navbar collapseOnSelect expand="md"  variant="light" className="bg-light" >
-          <Link href="/">Mbouke</Link>
+        <Navbar collapseOnSelect expand="md"  variant="light" >
+          <Link className={styles.navLinks} href="/">Mbouke</Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
                 
-
-              <Link href='/signup'>
+              <Nav.Link>
+                <Link href='/signup' className={styles.navLinks}>
                   Sign Up
-                {/* <Link href="/signup">Sign Up</Link> */}
                 </Link>
+              </Nav.Link>
                 
-              <Link href='login'>
-                {/* <Link href="/login"> */}
+              <Nav.Link >
+                <Link href='/login'>
                 Log In
-              {/* </Link> */}
-              </Link>
-              <Link href="#deets">Are You A Local Pro?</Link>
+                </Link>
+              </Nav.Link>
+              
             </Nav>
           </Navbar.Collapse>
         </Navbar>
