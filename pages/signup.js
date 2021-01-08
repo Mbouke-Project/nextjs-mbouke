@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import axios from 'axios'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
 import styles from '../styles/Utils.module.sass'
 import Navigation from '../components/navigation.js'
@@ -11,10 +12,10 @@ const initialState = {
     service: '',
     country: '', 
     city: '', 
-    firstName: '', 
-    lastName: '', 
-    businessName: '', 
-    phoneNumber: '', 
+    first_name: '', 
+    last_name: '', 
+    business_name: '', 
+    phone: '', 
     email: '', 
     password: ''
 }
@@ -39,22 +40,22 @@ function reducer(state, action) {
         case 'setFirstName':
             return {
                 ...state, 
-                firstName: action.value
+                first_name: action.value
             } 
         case 'setLastName':
             return {
                 ...state, 
-                lastName: action.value
+                last_name: action.value
             } 
         case 'setBusinessName': 
             return {
                 ...state, 
-                businessName: action.value
+                business_name: action.value
             }
-        case 'setPhoneNumber':
+        case 'setPhone':
             return {
                 ...state, 
-                phoneNumber: action.value
+                phone: action.value
             } 
         case 'setEmail':
             return {
@@ -66,6 +67,8 @@ function reducer(state, action) {
                 ...state, 
                 password: action.value
             } 
+            default:
+            throw new Error()
     }
 }
 
@@ -76,7 +79,11 @@ function Signup() {
     
     const handleSubmit = (e, state) => {
         e.preventDefault()
-      
+        axios.post('http://127.0.0.1:4000/workers', {user: state}, {withCredentials: true}) 
+        .then( response => console.log(response))
+        .catch( error => {
+            console.log(error)
+        })
     }
     
     return (
@@ -130,7 +137,7 @@ function Signup() {
                                     <Col>
                                         <Form.Group >
                                             <Form.Label>Phone Number</Form.Label>
-                                            <Form.Control name="phoneNumber" type="text" placeholder="Phone Number" onChange={ e => dispatch( {type: 'setPhoneNumber', value: e.target.value} )}/>
+                                            <Form.Control name="phone" type="text" placeholder="Phone Number" onChange={ e => dispatch( {type: 'setPhone', value: e.target.value} )}/>
                                         </Form.Group>
                                     </Col>
                                 </Form.Row>
