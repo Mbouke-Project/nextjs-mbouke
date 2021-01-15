@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { useRouter } from 'next/router'
 import axios from 'axios'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
 import styles from '../styles/Utils.module.sass'
@@ -15,9 +16,10 @@ const initialState = {
     first_name: '', 
     last_name: '', 
     business_name: '', 
-    phone: '', 
+    phone_number: '', 
     email: '', 
-    password: ''
+    password: '',
+    errors: ''
 }
 
 function reducer(state, action) {
@@ -55,7 +57,7 @@ function reducer(state, action) {
         case 'setPhone':
             return {
                 ...state, 
-                phone: action.value
+                phone_number: action.value
             } 
         case 'setEmail':
             return {
@@ -67,6 +69,11 @@ function reducer(state, action) {
                 ...state, 
                 password: action.value
             } 
+        case 'setErrors':
+            return {
+                ...state, 
+                errors: action.value
+            } 
             default:
             throw new Error()
     }
@@ -74,18 +81,28 @@ function reducer(state, action) {
 
 
 function Signup() {
-
+    const router = useRouter()
     const [state, dispatch] = useReducer(reducer, initialState)
-    
-    const handleSubmit = (e, state) => {
+
+    const handleSubmit = (e, state, router) => {
         e.preventDefault()
         axios.post('http://127.0.0.1:4000/workers', {user: state}, {withCredentials: true}) 
-        .then( response => console.log(response))
+        .then( response => {
+            if (response.data.success) {
+                localStorage.setItem("token", response.data.jwt)
+                router.push("/myPage")
+            }
+            else {
+                console.log(response)
+                dispatch( {type: 'setErrors', value: response.data.errors} )
+                alert("Error. See Console.")
+            }
+        })
         .catch( error => {
             console.log(error)
+            alert("NotFound")
         })
     }
-    
     return (
         <div>
             <Navigation />
@@ -94,7 +111,8 @@ function Signup() {
                     <Row>
                         <Col xs={12} md={12} className={styles.signupContainer}>
                             <h2>Join Our Network Of Pros</h2>
-                            <Form onSubmit={ e => handleSubmit(e, state)} >
+                            <span className={styles.errors}>{state.errors}</span>
+                            <Form onSubmit={ e => handleSubmit(e, state, router)} >
                                 <Form.Group >
                                     <Form.Label>What Type Of Services Do You Provide?</Form.Label>
                                     <Form.Control name="service" id='service' type="text" placeholder="e.g. Plumbering, Roofing, etc" onChange={ e => dispatch( {type: 'setService', value: e.target.value} ) } />
