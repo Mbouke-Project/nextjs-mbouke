@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from 'react';
+import { useRouter } from 'next/router'
 import axios from 'axios'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
 import Image from 'next/image'
@@ -9,20 +10,28 @@ import Footer from '../components/footer.js'
 
 function Login() {
 
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
-    const handleSubmit = (e, email, password) => {
+    const handleSubmit = (e, email, password, router) => {
         e.preventDefault() 
         axios.post('http://127.0.0.1:4000/login', {user: {email: email, password: password}}, {withCredentials: true}) 
         .then( response => {
             console.log(response)
-            setError(response.data.errors)
+            if ( response.data.errors ) {
+                setError(response.data.errors)
+            }
+            else {
+                setError("")
+                localStorage.setItem("token", response.data.jwt)
+                router.push("/profile")
+            }
         })
         .catch( error => {
-            console.log("HERE", error)
-            setError(error.error)
+            // console.log("HERE", error)
+            // setError(error)
         })
 
     }
@@ -49,7 +58,7 @@ function Login() {
                                 <div className={styles.formContainer}>
                                 <h1>Login For Pros</h1>
                                 <span className={styles.errors}>{error}</span>
-                                <Form onSubmit={ e => handleSubmit(e, email, password) }>
+                                <Form onSubmit={ e => handleSubmit(e, email, password, router) }>
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control type="email" placeholder="Enter email" onChange={ e => setEmail(e.target.value)}/>
