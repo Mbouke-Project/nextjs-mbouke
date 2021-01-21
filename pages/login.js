@@ -1,3 +1,5 @@
+import React, { useReducer, useState } from 'react';
+import axios from 'axios'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
 import Image from 'next/image'
 import styles from '../styles/Utils.module.sass'
@@ -6,6 +8,26 @@ import Navigation from '../components/navigation.js'
 import Footer from '../components/footer.js'
 
 function Login() {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+
+    const handleSubmit = (e, email, password) => {
+        e.preventDefault() 
+        axios.post('http://127.0.0.1:4000/login', {user: {email: email, password: password}}, {withCredentials: true}) 
+        .then( response => {
+            console.log(response)
+            setError(response.data.errors)
+        })
+        .catch( error => {
+            console.log("HERE", error)
+            setError(error.error)
+        })
+
+    }
+
+
     return (
         <div>
             <Navigation />
@@ -26,17 +48,18 @@ function Login() {
                        
                                 <div className={styles.formContainer}>
                                 <h1>Login For Pros</h1>
-                                <Form>
+                                <span className={styles.errors}>{error}</span>
+                                <Form onSubmit={ e => handleSubmit(e, email, password) }>
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Control type="email" placeholder="Enter email" onChange={ e => setEmail(e.target.value)}/>
                                         <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
                                         </Form.Text>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" placeholder="Password" onChange={ e => setPassword(e.target.value)}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicCheckbox">
                                         <Form.Check type="checkbox" label="Check me out" />
