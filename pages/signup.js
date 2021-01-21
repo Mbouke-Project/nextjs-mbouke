@@ -90,7 +90,7 @@ function Signup() {
         .then( response => {
             if (response.data.success) {
                 localStorage.setItem("token", response.data.jwt)
-                router.push("/myPage")
+                router.push("/profile")
             }
             else {
                 console.log(response)
