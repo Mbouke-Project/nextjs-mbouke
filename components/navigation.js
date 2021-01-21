@@ -51,15 +51,15 @@ function Navigation() {
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link href='/myPage' className={styles.navLinks}>
-                  My Page
+                <Link href='/profile' className={styles.navLinks}>
+                  Profile
                 </Link>
               </Nav.Link>
               {displayLogin()}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        </nav>
+      </nav>
     )
 }
 
