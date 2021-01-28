@@ -10,6 +10,7 @@ function Navigation() {
   const handleLogout = () => {
     localStorage.token = ""
     router.push('/')
+    alert("You have been logged out")
   }
 
   const displayLogin = () => {
