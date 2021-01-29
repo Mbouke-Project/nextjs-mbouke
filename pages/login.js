@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import {Container, Nav, Navbar, Row, Col, Form, Button } from 'react-bootstrap'
@@ -30,7 +30,7 @@ function Login() {
             }
         })
         .catch( error => {
-            // console.log("HERE", error)
+            console.log("HERE", error)
             // setError(error)
         })
 
@@ -54,6 +54,8 @@ function Login() {
                         />
                         </Col>
                         <Col className={styles.formColumn} xs={12} md={6} >
+
+                    
                        
                                 <div className={styles.formContainer}>
                                 <h1>Login For Pros</h1>
