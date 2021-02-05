@@ -44,7 +44,7 @@ function Navigation() {
       </>
     )
   }
-  
+  console.log(session)
     return (
         <nav>
         <Navbar collapseOnSelect expand="md"  variant="light" >
@@ -77,6 +77,7 @@ function Navigation() {
                     </Nav.Link>
                   </> : 
                   <Nav.Link>
+                    <span>{session.expires}</span>
                     <span>{session.user.name}</span>
                     {session.user.image && (
                       <img 
